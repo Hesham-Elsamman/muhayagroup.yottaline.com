@@ -1,0 +1,221 @@
+{
+  "meta": {
+    "title": "Muhaya Group | Luxury Living. Trusted Investment.",
+    "description": "Muhaya Group — Premium hotel apartments, property management, real estate development, and investment opportunities with world-class standards."
+  },
+  "nav": {
+    "services": "Services",
+    "about": "About",
+    "properties": "Properties",
+    "investment": "Investment",
+    "contact": "Contact",
+    "contactUs": "Contact Us",
+    "toggleTheme": "Toggle theme",
+    "toggleMenu": "Toggle menu",
+    "switchLang": "Switch to Arabic"
+  },
+  "hero": {
+    "badge": "Premium Real Estate · Riyadh, KSA",
+    "line1": "Where Luxury",
+    "line2": "Meets",
+    "line3": "Investment.",
+    "desc": "Muhaya Group redefines upscale living — crafting iconic hotel apartments, optimizing high-yield assets, and unlocking exclusive investment opportunities across the Kingdom's most coveted addresses.",
+    "ctaPrimary": "Explore Portfolio",
+    "ctaSecondary": "Book a Consultation",
+    "stat1": "Units Managed",
+    "stat2": "Years Experience",
+    "stat3": "Client Satisfaction",
+    "trustText": "Trusted by 1,500+ investors & residents",
+    "scroll": "Scroll",
+    "heroImageAlt": "Luxury modern apartment with panoramic city views"
+  },
+  "floating": {
+    "close": "Close",
+    "title": "Book a Consultation",
+    "text": "Speak with our luxury advisors"
+  },
+  "services": {
+    "eyebrow": "Our Expertise",
+    "title": "Premium Services",
+    "desc": "Comprehensive real estate and hospitality solutions crafted for discerning clients who expect excellence.",
+    "hotelApartments": {
+      "title": "Hotel Apartments",
+      "desc": "Fully serviced luxury residences combining five-star hospitality with the comfort of home ownership."
+    },
+    "propertyManagement": {
+      "title": "Property Management",
+      "desc": "End-to-end management ensuring your assets are maintained, optimized, and generating maximum returns."
+    },
+    "realEstateDev": {
+      "title": "Real Estate Development",
+      "desc": "Iconic developments that redefine luxury living with architectural excellence and premium finishes."
+    },
+    "investmentOpps": {
+      "title": "Investment Opportunities",
+      "desc": "Curated investment portfolios in prime locations with proven track records and exceptional ROI."
+    }
+  },
+  "about": {
+    "eyebrow": "About Muhaya",
+    "title": "Redefining Luxury Living & Investment",
+    "text": "Founded on a vision to merge world-class hospitality with premium real estate, Muhaya Group has become a trusted name in luxury property development and management. We create spaces where elegance meets opportunity.",
+    "imageAlt": "Luxury interior living space",
+    "stats": {
+      "unitsManaged": "Units Managed",
+      "happyClients": "Happy Clients",
+      "projects": "Projects",
+      "yearsExperience": "Years Experience"
+    }
+  },
+  "why": {
+    "eyebrow": "Why Muhaya",
+    "title": "The Muhaya Difference",
+    "desc": "Every detail reflects our commitment to luxury, trust, and exceptional returns.",
+    "premiumLocations": {
+      "title": "Premium Locations",
+      "desc": "Strategically positioned in the most sought-after districts and emerging luxury markets."
+    },
+    "professionalManagement": {
+      "title": "Professional Management",
+      "desc": "Dedicated teams ensuring seamless operations and impeccable service standards."
+    },
+    "luxuryStandards": {
+      "title": "Luxury Standards",
+      "desc": "Five-star quality in every aspect — from architecture to amenities and service."
+    },
+    "trustedInvestment": {
+      "title": "Trusted Investment",
+      "desc": "Transparent processes and proven returns that build long-term investor confidence."
+    },
+    "support247": {
+      "title": "24/7 Support",
+      "desc": "Round-the-clock concierge and support services for residents and investors alike."
+    },
+    "highRoi": {
+      "title": "High ROI",
+      "desc": "Consistently strong returns driven by prime locations and professional asset management."
+    }
+  },
+  "properties": {
+    "eyebrow": "Portfolio",
+    "title": "Featured Properties",
+    "desc": "Discover our curated collection of premium residences and hospitality destinations.",
+    "featured": "Featured",
+    "new": "New",
+    "viewDetails": "View Details",
+    "prev": "Previous",
+    "next": "Next",
+    "items": [
+      {
+        "name": "Muhaya Residences",
+        "location": "Downtown District",
+        "price": "From $450K",
+        "alt": "Muhaya Residences"
+      },
+      {
+        "name": "Azure Hotel Apartments",
+        "location": "Waterfront Boulevard",
+        "price": "From $620K",
+        "alt": "Azure Hotel Apartments"
+      },
+      {
+        "name": "Golden Gate Towers",
+        "location": "Business Bay",
+        "price": "From $380K",
+        "alt": "Golden Gate Towers"
+      },
+      {
+        "name": "Palm Vista Suites",
+        "location": "Palm District",
+        "price": "From $890K",
+        "alt": "Palm Vista Suites"
+      }
+    ]
+  },
+  "hospitality": {
+    "eyebrow": "Experience",
+    "title": "Hospitality Experience",
+    "desc": "Immerse yourself in the refined lifestyle that defines every Muhaya property.",
+    "items": [
+      { "label": "Luxury Lobby", "alt": "Luxury Lobby" },
+      { "label": "Reception", "alt": "Reception" },
+      { "label": "Hotel Bedroom", "alt": "Hotel Bedroom" },
+      { "label": "Swimming Pool", "alt": "Swimming Pool" },
+      { "label": "Gym", "alt": "Gym" },
+      { "label": "Business Lounge", "alt": "Business Lounge" },
+      { "label": "Coffee Area", "alt": "Coffee Area" },
+      { "label": "Restaurant", "alt": "Restaurant" }
+    ]
+  },
+  "investment": {
+    "eyebrow": "Investment",
+    "title": "Invest With Confidence",
+    "desc": "Partner with Muhaya Group for secure, high-yield real estate investments backed by proven expertise and premium assets.",
+    "roi": {
+      "value": "12%",
+      "desc": "Average Annual ROI across our managed portfolio"
+    },
+    "assets": {
+      "value": "$2B+",
+      "desc": "Total asset value under management and development"
+    },
+    "satisfaction": {
+      "value": "98%",
+      "desc": "Investor satisfaction and retention rate"
+    },
+    "cta": "Start Investing"
+  },
+  "testimonials": {
+    "eyebrow": "Testimonials",
+    "title": "What Our Clients Say",
+    "desc": "Trusted by investors and residents who demand the very best.",
+    "items": [
+      {
+        "text": "\"Muhaya Group transformed our investment portfolio. Their professionalism and attention to detail exceeded every expectation.\"",
+        "name": "Ahmed Al-Rashid",
+        "role": "Property Investor"
+      },
+      {
+        "text": "\"Living at Muhaya Residences feels like a permanent vacation. The hospitality standards are truly world-class.\"",
+        "name": "Sarah Mitchell",
+        "role": "Resident"
+      },
+      {
+        "text": "\"The ROI on our hotel apartment investment has been remarkable. Muhaya's management team is exceptional.\"",
+        "name": "James Chen",
+        "role": "Business Owner"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Start Your Luxury Journey Today",
+    "desc": "Connect with our team of luxury real estate advisors and discover exclusive opportunities tailored to your vision.",
+    "bookNow": "Book Now",
+    "contactUs": "Contact Us",
+    "imageAlt": "Luxury property exterior at sunset"
+  },
+  "footer": {
+    "brand": "MUHAYA",
+    "desc": "Premium real estate and hospitality solutions for discerning clients worldwide.",
+    "navigation": "Navigation",
+    "services": "Services",
+    "contact": "Contact",
+    "hotelApartments": "Hotel Apartments",
+    "propertyManagement": "Property Management",
+    "development": "Development",
+    "investment": "Investment",
+    "testimonials": "Testimonials",
+    "phone": "+966 50 000 0000",
+    "email": "info@muhayagroup.com",
+    "whatsapp": "WhatsApp: +966 50 000 0000",
+    "address": "Riyadh, Kingdom of Saudi Arabia",
+    "instagram": "Instagram",
+    "linkedin": "LinkedIn",
+    "twitter": "Twitter",
+    "copyright": "© 2026 Muhaya Group. All rights reserved.",
+    "tagline": "Luxury Living. Trusted Investment."
+  },
+  "logo": {
+    "alt": "Muhaya Group"
+  }
+}

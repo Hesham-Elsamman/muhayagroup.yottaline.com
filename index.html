@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title></title>
+
+  <style>html:not([data-i18n-ready]) body { visibility: hidden; }</style>
+  <script src="js/i18n.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="#" class="logo">
+        <img src="assets/logo-text.png" alt="" class="logo-img" width="160" height="40" data-logo-en="assets/logo-text.png" data-logo-ar="assets/logo-ar-text.png" data-i18n-attr="alt:logo.alt">
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#services" data-i18n="nav.services"></a></li>
+        <li><a href="#about" data-i18n="nav.about"></a></li>
+        <li><a href="#properties" data-i18n="nav.properties"></a></li>
+        <li><a href="#investment" data-i18n="nav.investment"></a></li>
+        <li><a href="#contact" data-i18n="nav.contact"></a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <div class="button-wrap circle-wrap">
+          <button class="lang-toggle" id="langToggle" type="button" aria-label="">
+            <span class="lang-text">ع</span>
+          </button>
+          <div class="button-shadow"></div>
+        </div>
+        <div class="button-wrap circle-wrap">
+          <button class="theme-toggle" id="themeToggle" type="button" data-i18n-attr="aria-label:nav.toggleTheme">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <div class="button-shadow"></div>
+        </div>
+        <div class="button-wrap">
+          <button type="button" onclick="document.querySelector('#contact')?.scrollIntoView({behavior: 'smooth'})">
+            <span data-i18n="nav.contactUs">Contact Us</span>
+          </button>
+          <div class="button-shadow"></div>
+        </div>
+        <button class="nav-toggle" id="navToggle" type="button" data-i18n-attr="aria-label:nav.toggleMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <!-- Background -->
+    <div class="hero-bg">
+      <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80" alt="" data-i18n-attr="alt:hero.heroImageAlt">
+      <div class="hero-grain"></div>
+    </div>
+    <div class="hero-overlay"></div>
+
+    <!-- Main Content -->
+    <div class="container hero-container">
+
+      <!-- Left: Text Content -->
+      <div class="hero-left">
+        <div class="hero-badge" data-i18n="hero.badge"></div>
+
+        <h1 class="hero-headline">
+          <span class="hero-line hero-line-1">
+            <span class="hero-line-inner" data-i18n="hero.line1"></span>
+          </span>
+          <span class="hero-line hero-line-2">
+            <em class="hero-italic" data-i18n="hero.line2"></em>
+          </span>
+          <span class="hero-line hero-line-3">
+            <span class="hero-line-inner hero-line-accent" data-i18n="hero.line3"></span>
+          </span>
+        </h1>
+
+        <p class="hero-desc" data-i18n="hero.desc"></p>
+
+        <div class="hero-cta-group">
+          <a href="#properties" class="hero-cta-primary">
+            <span data-i18n="hero.ctaPrimary"></span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#contact" class="hero-cta-ghost">
+            <span data-i18n="hero.ctaSecondary"></span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Stats Column -->
+      <div class="hero-right">
+        <div class="hero-stats-card">
+          <div class="hero-stat">
+            <span class="hero-stat-value">500<sup>+</sup></span>
+            <span class="hero-stat-label" data-i18n="hero.stat1"></span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span class="hero-stat-value">8<sup>+</sup></span>
+            <span class="hero-stat-label" data-i18n="hero.stat2"></span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span class="hero-stat-value">98<sup>%</sup></span>
+            <span class="hero-stat-label" data-i18n="hero.stat3"></span>
+          </div>
+        </div>
+
+        <div class="hero-trust">
+          <div class="hero-trust-avatars">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80" alt="">
+            <img src="assets/girl.png" alt="">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&q=80" alt="">
+            <img src="assets/man.png" alt="">
+          </div>
+          <p class="hero-trust-text" data-i18n="hero.trustText"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="hero-scroll">
+      <div class="hero-scroll-track">
+        <div class="hero-scroll-dot"></div>
+      </div>
+      <span data-i18n="hero.scroll"></span>
+    </div>
+  </section>
+
+  <!-- Floating Contact Card -->
+  <a href="#contact" class="floating-card" id="floatingCard">
+    <button class="floating-card-close" id="floatingClose" type="button" data-i18n-attr="aria-label:floating.close">&times;</button>
+    <div class="floating-card-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    </div>
+    <div class="floating-card-text">
+      <h4 data-i18n="floating.title"></h4>
+      <p data-i18n="floating.text"></p>
+    </div>
+  </a>
+
+  <!-- Services -->
+  <section class="section" id="services">
+    <div class="pattern-bg"></div>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow" data-i18n="services.eyebrow"></span>
+        <h2 class="section-title" data-i18n="services.title"></h2>
+        <p class="section-desc" data-i18n="services.desc"></p>
+      </div>
+      <div class="services-grid">
+        <article class="service-card reveal-scale">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4M9 9v.01M9 12v.01M9 15v.01M9 18v.01"/></svg>
+          </div>
+          <h3 data-i18n="services.hotelApartments.title"></h3>
+          <p data-i18n="services.hotelApartments.desc"></p>
+        </article>
+        <article class="service-card reveal-scale">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 data-i18n="services.propertyManagement.title"></h3>
+          <p data-i18n="services.propertyManagement.desc"></p>
+        </article>
+        <article class="service-card reveal-scale">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 20h20M4 20V10l8-6 8 6v10M10 20v-6h4v6"/></svg>
+          </div>
+          <h3 data-i18n="services.realEstateDev.title"></h3>
+          <p data-i18n="services.realEstateDev.desc"></p>
+        </article>
+        <article class="service-card reveal-scale">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h3 data-i18n="services.investmentOpps.title"></h3>
+          <p data-i18n="services.investmentOpps.desc"></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="container about-grid">
+      <div class="about-image reveal-image">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" alt="" data-i18n-attr="alt:about.imageAlt">
+        <div class="about-image-accent"></div>
+      </div>
+      <div class="about-content">
+        <span class="section-eyebrow reveal-up" data-i18n="about.eyebrow"></span>
+        <h2 class="section-title reveal-up" data-i18n="about.title"></h2>
+        <p class="about-text reveal-up" data-i18n="about.text"></p>
+        <div class="stats-grid">
+          <div class="stat-item reveal-up">
+            <div class="stat-number" data-count="500" data-suffix="+">0</div>
+            <div class="stat-label" data-i18n="about.stats.unitsManaged"></div>
+          </div>
+          <div class="stat-item reveal-up">
+            <div class="stat-number" data-count="1500" data-suffix="+">0</div>
+            <div class="stat-label" data-i18n="about.stats.happyClients"></div>
+          </div>
+          <div class="stat-item reveal-up">
+            <div class="stat-number" data-count="12" data-suffix="+">0</div>
+            <div class="stat-label" data-i18n="about.stats.projects"></div>
+          </div>
+          <div class="stat-item reveal-up">
+            <div class="stat-number" data-count="8" data-suffix="+">0</div>
+            <div class="stat-label" data-i18n="about.stats.yearsExperience"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose -->
+  <section class="section" id="why">
+    <div class="pattern-bg"></div>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow" data-i18n="why.eyebrow"></span>
+        <h2 class="section-title" data-i18n="why.title"></h2>
+        <p class="section-desc" data-i18n="why.desc"></p>
+      </div>
+      <div class="features-grid">
+        <article class="feature-card reveal-up">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <h3 data-i18n="why.premiumLocations.title"></h3>
+          <p data-i18n="why.premiumLocations.desc"></p>
+        </article>
+        <article class="feature-card reveal-up">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h3 data-i18n="why.professionalManagement.title"></h3>
+          <p data-i18n="why.professionalManagement.desc"></p>
+        </article>
+        <article class="feature-card reveal-up">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          <h3 data-i18n="why.luxuryStandards.title"></h3>
+          <p data-i18n="why.luxuryStandards.desc"></p>
+        </article>
+        <article class="feature-card reveal-up">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h3 data-i18n="why.trustedInvestment.title"></h3>
+          <p data-i18n="why.trustedInvestment.desc"></p>
+        </article>
+        <article class="feature-card reveal-up">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <h3 data-i18n="why.support247.title"></h3>
+          <p data-i18n="why.support247.desc"></p>
+        </article>
+        <article class="feature-card reveal-up">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 6l-9.5 9.5-5-5L1 18"/><path d="M17 6h6v6"/></svg></div>
+          <h3 data-i18n="why.highRoi.title"></h3>
+          <p data-i18n="why.highRoi.desc"></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Properties -->
+  <section class="section properties-section" id="properties">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow" data-i18n="properties.eyebrow"></span>
+        <h2 class="section-title" data-i18n="properties.title"></h2>
+        <p class="section-desc" data-i18n="properties.desc"></p>
+      </div>
+      <div class="properties-slider">
+        <div class="properties-track" id="propertiesTrack">
+          <article class="property-card">
+            <div class="property-image">
+              <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80" alt="" data-i18n-attr="alt:properties.items.0.alt">
+              <span class="property-badge" data-i18n="properties.featured"></span>
+            </div>
+            <div class="property-body">
+              <h3 data-i18n="properties.items.0.name"></h3>
+              <div class="property-location">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span data-i18n="properties.items.0.location"></span>
+              </div>
+              <div class="property-footer">
+                <span class="property-price" data-i18n="properties.items.0.price"></span>
+                <a href="#" class="btn btn-outline" style="padding: 0.6rem 1.25rem; font-size: 0.75rem;" data-i18n="properties.viewDetails"></a>
+              </div>
+            </div>
+          </article>
+          <article class="property-card">
+            <div class="property-image">
+              <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80" alt="" data-i18n-attr="alt:properties.items.1.alt">
+              <span class="property-badge" data-i18n="properties.new"></span>
+            </div>
+            <div class="property-body">
+              <h3 data-i18n="properties.items.1.name"></h3>
+              <div class="property-location">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span data-i18n="properties.items.1.location"></span>
+              </div>
+              <div class="property-footer">
+                <span class="property-price" data-i18n="properties.items.1.price"></span>
+                <a href="#" class="btn btn-outline" style="padding: 0.6rem 1.25rem; font-size: 0.75rem;" data-i18n="properties.viewDetails"></a>
+              </div>
+            </div>
+          </article>
+          <article class="property-card">
+            <div class="property-image">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="" data-i18n-attr="alt:properties.items.2.alt">
+            </div>
+            <div class="property-body">
+              <h3 data-i18n="properties.items.2.name"></h3>
+              <div class="property-location">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span data-i18n="properties.items.2.location"></span>
+              </div>
+              <div class="property-footer">
+                <span class="property-price" data-i18n="properties.items.2.price"></span>
+                <a href="#" class="btn btn-outline" style="padding: 0.6rem 1.25rem; font-size: 0.75rem;" data-i18n="properties.viewDetails"></a>
+              </div>
+            </div>
+          </article>
+          <article class="property-card">
+            <div class="property-image">
+              <img src="https://images.unsplash.com/photo-1605276374101-dee2a0ed3cd6?w=800&q=80" alt="" data-i18n-attr="alt:properties.items.3.alt">
+            </div>
+            <div class="property-body">
+              <h3 data-i18n="properties.items.3.name"></h3>
+              <div class="property-location">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span data-i18n="properties.items.3.location"></span>
+              </div>
+              <div class="property-footer">
+                <span class="property-price" data-i18n="properties.items.3.price"></span>
+                <a href="#" class="btn btn-outline" style="padding: 0.6rem 1.25rem; font-size: 0.75rem;" data-i18n="properties.viewDetails"></a>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="slider-controls">
+          <button class="slider-btn" id="sliderPrev" type="button" data-i18n-attr="aria-label:properties.prev">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button class="slider-btn" id="sliderNext" type="button" data-i18n-attr="aria-label:properties.next">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hospitality Gallery -->
+  <section class="section" id="hospitality">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow" data-i18n="hospitality.eyebrow"></span>
+        <h2 class="section-title" data-i18n="hospitality.title"></h2>
+        <p class="section-desc" data-i18n="hospitality.desc"></p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80" alt="" data-i18n-attr="alt:hospitality.items.0.alt">
+          <div class="gallery-item-overlay"><span data-i18n="hospitality.items.0.label"></span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=600&q=80" alt="" data-i18n-attr="alt:hospitality.items.1.alt">
+          <div class="gallery-item-overlay"><span data-i18n="hospitality.items.1.label"></span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=80" alt="" data-i18n-attr="alt:hospitality.items.2.alt">
+          <div class="gallery-item-overlay"><span data-i18n="hospitality.items.2.label"></span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1575429198097-0415ec046e43?w=800&q=80" alt="" data-i18n-attr="alt:hospitality.items.3.alt">
+          <div class="gallery-item-overlay"><span data-i18n="hospitality.items.3.label"></span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80" alt="" data-i18n-attr="alt:hospitality.items.4.alt">
+          <div class="gallery-item-overlay"><span data-i18n="hospitality.items.4.label"></span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="" data-i18n-attr="alt:hospitality.items.5.alt">
+          <div class="gallery-item-overlay"><span data-i18n="hospitality.items.5.label"></span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=80" alt="" data-i18n-attr="alt:hospitality.items.6.alt">
+          <div class="gallery-item-overlay"><span data-i18n="hospitality.items.6.label"></span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80" alt="" data-i18n-attr="alt:hospitality.items.7.alt">
+          <div class="gallery-item-overlay"><span data-i18n="hospitality.items.7.label"></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Investment -->
+  <section class="section investment-section" id="investment">
+    <div class="pattern-bg"></div>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow" data-i18n="investment.eyebrow"></span>
+        <h2 class="section-title" data-i18n="investment.title"></h2>
+        <p class="section-desc" data-i18n="investment.desc"></p>
+      </div>
+      <div class="investment-grid">
+        <article class="investment-card">
+          <div class="investment-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 6l-9.5 9.5-5-5L1 18"/></svg>
+          </div>
+          <h3 data-i18n="investment.roi.value"></h3>
+          <p data-i18n="investment.roi.desc"></p>
+        </article>
+        <article class="investment-card">
+          <div class="investment-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h3 data-i18n="investment.assets.value"></h3>
+          <p data-i18n="investment.assets.desc"></p>
+        </article>
+        <article class="investment-card">
+          <div class="investment-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+          </div>
+          <h3 data-i18n="investment.satisfaction.value"></h3>
+          <p data-i18n="investment.satisfaction.desc"></p>
+        </article>
+      </div>
+      <div class="investment-cta">
+        <a href="#contact" class="btn btn-primary" data-i18n="investment.cta"></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow" data-i18n="testimonials.eyebrow"></span>
+        <h2 class="section-title" data-i18n="testimonials.title"></h2>
+        <p class="section-desc" data-i18n="testimonials.desc"></p>
+      </div>
+      <div class="testimonials-grid">
+        <article class="testimonial-card">
+          <div class="testimonial-stars">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testimonial-text" data-i18n="testimonials.items.0.text"></p>
+          <div class="testimonial-author">
+            <img class="testimonial-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="" data-i18n-attr="alt:testimonials.items.0.name">
+            <div class="testimonial-info">
+              <h4 data-i18n="testimonials.items.0.name"></h4>
+              <span data-i18n="testimonials.items.0.role"></span>
+            </div>
+          </div>
+        </article>
+        <article class="testimonial-card">
+          <div class="testimonial-stars">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testimonial-text" data-i18n="testimonials.items.1.text"></p>
+          <div class="testimonial-author">
+            <img class="testimonial-avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="" data-i18n-attr="alt:testimonials.items.1.name">
+            <div class="testimonial-info">
+              <h4 data-i18n="testimonials.items.1.name"></h4>
+              <span data-i18n="testimonials.items.1.role"></span>
+            </div>
+          </div>
+        </article>
+        <article class="testimonial-card">
+          <div class="testimonial-stars">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testimonial-text" data-i18n="testimonials.items.2.text"></p>
+          <div class="testimonial-author">
+            <img class="testimonial-avatar" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80" alt="" data-i18n-attr="alt:testimonials.items.2.name">
+            <div class="testimonial-info">
+              <h4 data-i18n="testimonials.items.2.name"></h4>
+              <span data-i18n="testimonials.items.2.role"></span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="cta-section" id="contact">
+    <div class="cta-bg">
+      <img src="https://images.unsplash.com/photo-1600047509809-ba389aa1130e?w=1920&q=80" alt="" data-i18n-attr="alt:cta.imageAlt">
+    </div>
+    <div class="cta-overlay"></div>
+    <div class="container cta-content">
+      <h2 class="section-title" data-i18n="cta.title"></h2>
+      <p data-i18n="cta.desc"></p>
+      <div class="cta-actions">
+        <a href="tel:+966500000000" class="btn btn-primary" data-i18n="cta.bookNow"></a>
+        <a href="mailto:info@muhayagroup.com" class="btn btn-ghost" data-i18n="cta.contactUs"></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <svg class="logo-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="36" height="36" rx="8" fill="var(--accent)"/>
+              <path d="M8 28V12L14 20L18 14L22 20L28 12V28" stroke="var(--light-tone)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span data-i18n="footer.brand"></span>
+          </a>
+          <p data-i18n="footer.desc"></p>
+          <div class="footer-social">
+            <a href="#" data-i18n-attr="aria-label:footer.instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" data-i18n-attr="aria-label:footer.linkedin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="#" data-i18n-attr="aria-label:footer.twitter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.navigation"></h4>
+          <ul>
+            <li><a href="#services" data-i18n="nav.services"></a></li>
+            <li><a href="#about" data-i18n="nav.about"></a></li>
+            <li><a href="#properties" data-i18n="nav.properties"></a></li>
+            <li><a href="#investment" data-i18n="nav.investment"></a></li>
+            <li><a href="#testimonials" data-i18n="footer.testimonials"></a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.services"></h4>
+          <ul>
+            <li><a href="#" data-i18n="footer.hotelApartments"></a></li>
+            <li><a href="#" data-i18n="footer.propertyManagement"></a></li>
+            <li><a href="#" data-i18n="footer.development"></a></li>
+            <li><a href="#" data-i18n="footer.investment"></a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.contact"></h4>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span data-i18n="footer.phone"></span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span data-i18n="footer.email"></span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            <span data-i18n="footer.whatsapp"></span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span data-i18n="footer.address"></span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer.copyright"></span>
+        <span data-i18n="footer.tagline"></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
