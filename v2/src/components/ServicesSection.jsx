@@ -54,7 +54,7 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="relative min-h-screen py-24 md:py-32! bg-transparent! z-50! overflow-hidden" dir="rtl">
+    <section id="services" className="relative min-h-screen pt-16 md:pt-20 pb-0 bg-transparent z-50 overflow-hidden" dir="rtl">
       
 
 
@@ -74,7 +74,7 @@ export default function ServicesSection() {
           className="text-center flex flex-col items-center gap-4 w-full max-w-3xl mb-20 md:mb-28"
         >
           {/* Top Pill Badge */}
-          <div className="inline-flex items-center gap-2.5 px-4! py-1.5 rounded-lg bg-white/[0.03] border border-[#00c8b8]/30 backdrop-blur-md shadow-[0_0_15px_rgba(0,200,184,0.1)]">
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-lg bg-white/[0.03] border border-[#00c8b8]/30 backdrop-blur-md shadow-[0_0_15px_rgba(0,200,184,0.1)]">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00c8b8] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00c8b8]"></span>
@@ -93,13 +93,13 @@ export default function ServicesSection() {
           </h2>
 
           {/* Subtitle */}
-          <p className="text-sm md:text-base text-white/60 max-w-2xl text-center font-light leading-relaxed my-2!">
+          <p className="text-sm md:text-base text-white/60 max-w-2xl text-center font-light leading-relaxed my-2">
             نقدم حزمة متكاملة من الخدمات العقارية والتشغيلية المصممة بعناية لتلائم تطلعات العملاء والمستثمرين الباحثين عن أعلى معايير الجودة والاستدامة.
           </p>
         </motion.div>
 
         {/* Services Grid with distinct top margin and space between cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 w-full mt-4! px-8!">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 w-full mt-4 px-8">
           {services.map((service, index) => (
             <motion.div
               key={service.id}
@@ -119,24 +119,24 @@ export default function ServicesSection() {
                 edgeSensitivity={20}
                 animated={false}
               >
-                <div className="relative z-10 flex flex-col justify-between p-5! h-full group bg-[#090a0a]/80 backdrop-blur-xl border border-white/[0.08] rounded-3xl hover:bg-[#0c0e0e]/90 hover:border-[#00c8b8]/30 transition-all duration-500 overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+                <div className="relative z-10 flex flex-col justify-between p-5 h-full group bg-[#090a0a]/80 backdrop-blur-xl border border-white/[0.08] rounded-3xl hover:bg-[#0c0e0e]/90 hover:border-[#00c8b8]/30 transition-all duration-500 overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
                   
                   {/* Hover ambient top line glow */}
                   <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#00c8b8]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
                   <div>
                     {/* Header Row: ID Number & Badge */}
-                    <div className="flex items-center justify-between mb-4!">
+                    <div className="flex items-center justify-between mb-4">
                       <span className="text-2xl font-black text-white/15 tracking-widest font-mono group-hover:text-[#00c8b8]/50 transition-colors duration-300">
                         {service.id}
                       </span>
-                      <span className="text-[11px] font-medium px-2.5! py-1! rounded-full bg-[#00c8b8]/10 text-[#00c8b8] border border-[#00c8b8]/20 group-hover:bg-[#00c8b8]/20 transition-all duration-300">
+                      <span className="text-[11px] font-medium px-2.5 py-1 rounded-full bg-[#00c8b8]/10 text-[#00c8b8] border border-[#00c8b8]/20 group-hover:bg-[#00c8b8]/20 transition-all duration-300">
                         {service.badge}
                       </span>
                     </div>
 
                     {/* Icon Box */}
-                    <div className="relative flex items-center justify-center w-14 h-14 mb-6! rounded-2xl text-[#00c8b8] group-hover:scale-105 transition-transform duration-300">
+                    <div className="relative flex items-center justify-center w-14 h-14 mb-6 rounded-2xl text-[#00c8b8] group-hover:scale-105 transition-transform duration-300">
                       {/* Glow Background */}
                       <div className="absolute inset-0 bg-[#00c8b8] opacity-[0.08] group-hover:opacity-[0.18] blur-xl rounded-2xl transition-opacity duration-500" />
                       <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-white/[0.02] to-transparent rounded-2xl border border-white/10 group-hover:border-[#00c8b8]/40 transition-colors duration-300" />
@@ -147,7 +147,7 @@ export default function ServicesSection() {
                     </div>
 
                     {/* Title & Description */}
-                    <h3 className="text-xl font-bold text-white mb-3! tracking-tight group-hover:text-[#00c8b8] transition-colors duration-300">
+                    <h3 className="text-xl font-bold text-white mb-3 tracking-tight group-hover:text-[#00c8b8] transition-colors duration-300">
                       {service.title}
                     </h3>
                     <p className="text-white/50 text-xs md:text-sm leading-relaxed font-light group-hover:text-white/70 transition-colors duration-300">
@@ -156,7 +156,7 @@ export default function ServicesSection() {
                   </div>
 
                   {/* Card Footer: Metric & Action Arrow */}
-                  <div className="pt-4! border-t border-white/5 flex items-center justify-center mt-4!">
+                  <div className="pt-4 border-t border-white/5 flex items-center justify-center mt-4">
                     <span className="text-xs font-semibold text-[#00c8b8]/90 tracking-wide">
                       {service.metric}
                     </span>
@@ -174,7 +174,7 @@ export default function ServicesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-20! w-full max-w-4xl p-6! md:p-8! rounded-3xl bg-gradient-to-r from-white/[0.04] via-[#00c8b8]/[0.05] to-white/[0.02] border border-white/10 backdrop-blur-xl flex flex-col md:flex-row items-center justify-between gap-6! shadow-[0_10px_40px_rgba(0,0,0,0.4)]"
+          className="mt-20 w-full max-w-4xl p-6 md:p-8 rounded-3xl bg-gradient-to-r from-white/[0.04] via-[#00c8b8]/[0.05] to-white/[0.02] border border-white/10 backdrop-blur-xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-[0_10px_40px_rgba(0,0,0,0.4)]"
         >
           <div className="flex flex-col text-center md:text-right gap-1">
             <h4 className="text-lg md:text-xl font-bold text-white">
@@ -187,7 +187,7 @@ export default function ServicesSection() {
           
           <a
             href="#contact"
-            className="px-6! py-3! rounded-2xl! bg-[#00c8b8] text-black font-semibold text-sm hover:bg-[#00e6d2] transition-all duration-300 shadow-[0_0_20px_rgba(0,200,184,0.3)] hover:shadow-[0_0_30px_rgba(0,200,184,0.5)] transform hover:-translate-y-0.5 whitespace-nowrap"
+            className="px-6 py-3 rounded-2xl bg-[#00c8b8] text-black font-semibold text-sm hover:bg-[#00e6d2] transition-all duration-300 shadow-[0_0_20px_rgba(0,200,184,0.3)] hover:shadow-[0_0_30px_rgba(0,200,184,0.5)] transform hover:-translate-y-0.5 whitespace-nowrap"
           >
             تواصل معنا الآن
           </a>

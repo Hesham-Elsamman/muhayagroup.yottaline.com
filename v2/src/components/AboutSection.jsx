@@ -31,7 +31,7 @@ function AnimatedCounter({ value, prefix = "", suffix = "" }) {
 
 export default function AboutSection() {
   return (
-    <section id="about" className="min-h-screen bg-black relative z-50 overflow-hidden pt-32 pb-20!">
+    <section id="about" className="min-h-screen bg-black relative z-50 overflow-hidden pt-16">
       {/* Gradient ambient light */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[800px] bg-[#00c8b8] opacity-[0.15] blur-[140px] pointer-events-none" />
 

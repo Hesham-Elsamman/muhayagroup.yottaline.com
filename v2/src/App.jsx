@@ -369,13 +369,13 @@ function App() {
             </>
           }
         ></ScrollExpandMedia>
-        <div className="flex flex-col relative w-full z-20!">
+        <div className="flex flex-col relative w-full z-20">
           <AboutSection />
           <ServicesSection />
           <TestimonialsSection />
           <ContactSection />
-          <footer className="relative z-20 border-t border-white/10 bg-[#030606]/95 px-6 py-8! text-center text-sm text-white/60 backdrop-blur">
-            <div className="mx-auto! flex max-w-6xl flex-col gap-3 md:flex-row md:items-center md:justify-between">
+          <footer className="relative z-20 border-t border-white/10 bg-[#030606]/95 px-6 py-8 text-center text-sm text-white/60 backdrop-blur">
+            <div className="mx-auto flex max-w-6xl flex-col gap-3 md:flex-row md:items-center md:justify-between">
               <p>© 2026 مجموعة المٌحيا. جميع الحقوق محفوظة.</p>
               <div className="flex items-center justify-center gap-4 md:justify-end">
                 <a href="#" className="transition hover:text-[#00c8b8]">

@@ -2,9 +2,9 @@ RewriteEngine On
 
 RewriteRule ^v1/ - [L]
 
-RewriteRule ^v2/ - [L]
+RewriteCond %{REQUEST_URI} ^/v2/(.*)
+RewriteCond %{DOCUMENT_ROOT}/v2/dist/$1 -f
+RewriteRule ^v2/(.*)$ /v2/dist/$1 [L]
 
-RewriteCond %{REQUEST_URI} ^/v2/
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^v2/(.*)$ /v2/index.html [L]
+RewriteCond %{REQUEST_URI} ^/v2
+RewriteRule ^v2/?(.*)$ /v2/dist/index.html [L]

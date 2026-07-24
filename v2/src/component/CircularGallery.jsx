@@ -653,7 +653,7 @@ export default function CircularGallery({
   }, [items, bend, textColor, borderRadius, font, fontUrl, scrollSpeed, scrollEase]);
   return (
     <div
-      className="circular-gallery! w-full! h-full! [&_canvas]:w-full! [&_canvas]:h-full!"
+      className="circular-gallery w-full h-full [&_canvas]:w-full [&_canvas]:h-full"
       ref={containerRef}
       tabIndex={0}
       role="region"

@@ -70,10 +70,10 @@ function TestimonialCard({ testimonial, index }) {
         delay: index * 0.15,
         ease: [0.21, 0.47, 0.32, 0.98],
       }}
-      className="h-full!"
+      className="h-full"
     >
       <BorderGlow
-        className="h-full! rounded-3xl!"
+        className="h-full rounded-3xl"
         glowColor="0 200 184"
         backgroundColor="transparent"
         colors={["#00c8b8", "#013a36", "#000000"]}
@@ -82,7 +82,7 @@ function TestimonialCard({ testimonial, index }) {
         edgeSensitivity={18}
         animated={true}
       >
-        <div className="relative! z-10! p-7! md:p-8! h-full! bg-gradient-to-br! from-[#0a1a19]! to-[#090a0a]/90! backdrop-blur-xl! border! border-[#00c8b8]/15! rounded-3xl! hover:border-[#00c8b8]/40! transition-all! duration-500! overflow-hidden! shadow-[0_20px_40px_rgba(0,0,0,0.6)]! flex! flex-col! hover:shadow-[0_30px_60px_rgba(0,200,184,0.15)]! hover:bg-gradient-to-br! hover:from-[#0a2422]! hover:to-[#090a0a]!">
+        <div className="relative z-10 p-7 md:p-8 h-full bg-gradient-to-br from-[#0a1a19] to-[#090a0a]/90 backdrop-blur-xl border border-[#00c8b8]/15 rounded-3xl hover:border-[#00c8b8]/40 transition-all duration-500 overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.6)] flex flex-col hover:shadow-[0_30px_60px_rgba(0,200,184,0.15)] hover:bg-gradient-to-br hover:from-[#0a2422] hover:to-[#090a0a]">
           {/* Stars Rating */}
           <div className="flex gap-1 mb-4">
             {Array.from({ length: testimonial.rating }).map((_, i) => (
@@ -98,7 +98,7 @@ function TestimonialCard({ testimonial, index }) {
           </div>
 
           {/* Testimonial Text */}
-          <p className="text-white/85! text-sm! md:text-base! font-light! leading-relaxed! mb-6! flex-grow! text-right!">
+          <p className="text-white/85 text-sm md:text-base font-light leading-relaxed mb-6 flex-grow text-right">
             "{testimonial.content}"
           </p>
 
@@ -106,17 +106,17 @@ function TestimonialCard({ testimonial, index }) {
           <div className="w-full h-px bg-gradient-to-r from-transparent via-[#00c8b8]/20 to-transparent mb-4" />
 
           {/* Client Info */}
-          <div className="flex! items-center! gap-4! pt-2!">
+          <div className="flex items-center gap-4 pt-2">
             <img
               src={testimonial.image}
               alt={testimonial.name}
-              className="w-14! h-14! rounded-full! object-cover! border! border-[#00c8b8]/40! flex-shrink-0! ring-2! ring-[#00c8b8]/20!"
+              className="w-14 h-14 rounded-full object-cover border border-[#00c8b8]/40 flex-shrink-0 ring-2 ring-[#00c8b8]/20"
             />
-            <div className="flex! flex-col! text-right!">
-              <p className="font-semibold! text-white! text-sm! md:text-base!">
+            <div className="flex flex-col text-right">
+              <p className="font-semibold text-white text-sm md:text-base">
                 {testimonial.name}
               </p>
-              <p className="text-[#00c8b8]! text-xs! md:text-sm! font-light!">
+              <p className="text-[#00c8b8] text-xs md:text-sm font-light">
                 {testimonial.title}
               </p>
             </div>
@@ -188,7 +188,7 @@ export default function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      className="relative min-h-screen py-24 md:py-32! bg-transparent! z-50! overflow-hidden"
+      className="relative min-h-screen pt-16 md:pt-20 pb-0 bg-transparent z-50 overflow-hidden"
       dir="rtl"
     >
       {/* Background ambient glow */}
@@ -196,7 +196,7 @@ export default function TestimonialsSection() {
       <div className="absolute bottom-10 left-10 w-[400px] h-[300px] bg-[#00c8b8]/5 rounded-full blur-[120px] pointer-events-none z-0" />
 
       {/* Main Container */}
-      <div className="w-full max-w-7xl mx-auto p-8! sm:p-12! lg:p-10! xl:p-24! relative z-10 flex flex-col items-center">
+      <div className="w-full max-w-7xl mx-auto p-8 sm:p-12 lg:p-10 xl:p-24 relative z-10 flex flex-col items-center">
         {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -206,7 +206,7 @@ export default function TestimonialsSection() {
           className="text-center flex flex-col items-center gap-4 w-full max-w-3xl mb-20 md:mb-28"
         >
           {/* Top Pill Badge */}
-          <div className="inline-flex items-center gap-2.5 px-4! py-1.5 rounded-lg bg-white/[0.03] border border-[#00c8b8]/30 backdrop-blur-md shadow-[0_0_15px_rgba(0,200,184,0.1)]">
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-lg bg-white/[0.03] border border-[#00c8b8]/30 backdrop-blur-md shadow-[0_0_15px_rgba(0,200,184,0.1)]">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00c8b8] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00c8b8]"></span>
@@ -225,23 +225,23 @@ export default function TestimonialsSection() {
           </h2>
 
           {/* Subtitle */}
-          <p className="text-sm md:text-base text-white/60 max-w-2xl text-center font-light leading-relaxed my-2!">
+          <p className="text-sm md:text-base text-white/60 max-w-2xl text-center font-light leading-relaxed my-2">
             تجارب حقيقية من شركائنا الموثوقين يتحدثون عن التزامنا بالتميز
             والخدمة الاستثنائية.
           </p>
         </motion.div>
 
         {/* Gallery Section with Images */}
-        <div className="hidden! md:block! w-full! mb-20! md:mb-28! px-4! md:px-0!">
+        <div className="hidden md:block w-full mb-20 md:mb-28 px-4 md:px-0">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
-            className="relative! w-full! max-w-5xl! mx-auto! h-96! md:h-[480px]! lg:h-[550px]!"
+            className="relative w-full max-w-5xl mx-auto h-96 md:h-[480px] lg:h-[550px]"
           >
-            <div className="absolute! -inset-2! md:-inset-4! bg-gradient-to-r! from-[#00c8b8]/20! via-[#00c8b8]/10! to-transparent! rounded-3xl! blur-2xl! -z-10! opacity-0! md:opacity-100!" />
-            <div className="relative! w-full! h-full! rounded-3xl! overflow-hidden!">
+            <div className="absolute -inset-2 md:-inset-4 bg-gradient-to-r from-[#00c8b8]/20 via-[#00c8b8]/10 to-transparent rounded-3xl blur-2xl -z-10 opacity-0 md:opacity-100" />
+            <div className="relative w-full h-full rounded-3xl overflow-hidden">
               <CircularGallery
                 items={galleryImages}
                 bend={4}
@@ -256,9 +256,9 @@ export default function TestimonialsSection() {
         </div>
 
         {/* Testimonials Slider */}
-        <div className="w-full!" ref={sectionRef}>
+        <div className="w-full" ref={sectionRef}>
           {/* Desktop View - Grid */}
-          <div className="hidden! md:grid! md:grid-cols-3! gap-6! lg:gap-8! px-4! md:px-8! w-full! max-w-6xl! mx-auto!">
+          <div className="hidden md:grid md:grid-cols-3 gap-6 lg:gap-8 px-4 md:px-8 w-full max-w-6xl mx-auto">
             {testimonials.map((testimonial, index) => (
               <TestimonialCard
                 key={testimonial.id}
@@ -269,9 +269,9 @@ export default function TestimonialsSection() {
           </div>
 
           {/* Mobile View - Slider */}
-          <div className="md:hidden! w-full! px-4! mx-auto!">
+          <div className="md:hidden w-full px-4 mx-auto">
             <motion.div
-              className="flex! justify-center! cursor-grab! active:cursor-grabbing!"
+              className="flex justify-center cursor-grab active:cursor-grabbing"
               onMouseDown={handleMouseDown}
               onMouseUp={handleMouseUp}
               onTouchStart={(e) => setDragStart(e.touches[0].clientX)}
@@ -293,7 +293,7 @@ export default function TestimonialsSection() {
               exit={{ opacity: 0, x: -50 }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
             >
-              <div className="w-full! max-w-sm!">
+              <div className="w-full max-w-sm">
                 <TestimonialCard
                   testimonial={testimonials[currentIndex]}
                   index={0}
