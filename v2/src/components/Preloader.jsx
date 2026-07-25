@@ -1,67 +1,101 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 
-export default function Preloader({ isVideoLoaded, onComplete }) {
+export default function Preloader({ videoUrl, onVideoReady, onComplete }) {
   const [progress, setProgress] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [minTimePassed, setMinTimePassed] = useState(false);
+  const [videoReady, setVideoReady] = useState(false);
+
+  const resolvedRef = useRef(false);
+  const controllerRef = useRef(null);
+  const onVideoReadyRef = useRef(onVideoReady);
+
+  // Keep the latest callback ref updated
+  onVideoReadyRef.current = onVideoReady;
+
+  const forceDone = useCallback(() => {
+    setProgress(100);
+    setTimeout(() => {
+      setIsLoaded(true);
+      setTimeout(() => onComplete?.(), 1200);
+    }, 600);
+  }, [onComplete]);
 
   useEffect(() => {
-    let isCancelled = false;
-    let minTimePassed = false;
-    let windowLoaded = document.readyState === 'complete';
+    if (minTimePassed && videoReady) forceDone();
+  }, [minTimePassed, videoReady, forceDone]);
 
-    const minTimer = setTimeout(() => {
-      minTimePassed = true;
-      checkDone();
-    }, 2500);
+  useEffect(() => {
+    const t = setTimeout(() => setMinTimePassed(true), 2500);
+    return () => clearTimeout(t);
+  }, []);
 
-    const forceDone = () => {
-      if (!isCancelled) {
+  useEffect(() => {
+    if (!videoUrl) return;
+
+    resolvedRef.current = false;
+    controllerRef.current = new AbortController();
+
+    const loadVideo = async () => {
+      try {
+        const res = await fetch(videoUrl, {
+          signal: controllerRef.current.signal,
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+
+        const total = Number(res.headers.get('content-length')) || 0;
+        const reader = res.body.getReader();
+        const chunks = [];
+        let received = 0;
+
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          chunks.push(value);
+          received += value.byteLength;
+          setProgress(total > 0
+            ? Math.min(99, Math.round((received / total) * 100))
+            : (p) => Math.min(p + 2, 90)
+          );
+        }
+
+        if (resolvedRef.current) return;
+        resolvedRef.current = true;
+
+        const blob = new Blob(chunks, { type: 'video/mp4' });
+        const blobUrl = URL.createObjectURL(blob);
         setProgress(100);
-        setTimeout(() => {
-          if (!isCancelled) {
-            setIsLoaded(true);
-            setTimeout(() => {
-              if (onComplete) onComplete();
-            }, 1200);
-          }
-        }, 600);
+        onVideoReadyRef.current(blobUrl);
+        setVideoReady(true);
+      } catch (err) {
+        if (err.name === 'AbortError') return;
+        if (resolvedRef.current) return;
+        resolvedRef.current = true;
+
+        console.warn('[MuhayaPreloader] fetch failed — using direct src:', err);
+        onVideoReadyRef.current(videoUrl);
+        setProgress(100);
+        setVideoReady(true);
       }
     };
 
-    const checkDone = () => {
-      if (minTimePassed && windowLoaded && isVideoLoaded) {
-        forceDone();
-      }
-    };
+    loadVideo();
+    return () => controllerRef.current?.abort();
+  }, [videoUrl]);
 
-    if (!windowLoaded) {
-      const handleLoad = () => {
-        windowLoaded = true;
-        checkDone();
-      };
-      window.addEventListener('load', handleLoad);
-    }
-
-    const fallbackTimer = setTimeout(() => {
-      // بعد 15 ثانية ننهي اللودر إجبارياً لتجنب تعليق المستخدم
-      forceDone();
-    }, 15000);
-
-    const interval = setInterval(() => {
-      setProgress(p => Math.floor(Math.min(p + (Math.random() * 4) + 1, 95)));
-    }, 200);
-
-    // Call checkDone manually in case dependencies update
-    checkDone();
-
-    return () => {
-      isCancelled = true;
-      clearTimeout(minTimer);
-      clearTimeout(fallbackTimer);
-      clearInterval(interval);
-    };
-  }, [isVideoLoaded, onComplete]);
+  useEffect(() => {
+    const t = setTimeout(() => {
+      if (resolvedRef.current) return;
+      resolvedRef.current = true;
+      controllerRef.current?.abort();
+      console.warn('[MuhayaPreloader] fetch timeout — falling back to direct src');
+      onVideoReadyRef.current(videoUrl);
+      setProgress(100);
+      setVideoReady(true);
+    }, 20000);
+    return () => clearTimeout(t);
+  }, [videoUrl]);
 
   return (
     <AnimatePresence>

@@ -60,11 +60,11 @@ const ScrollExpandMedia = ({
   textBlend,
   segments = [],
   expandDistance = 1,   // in viewport heights
-  scrubDistance,        // in viewport heights (auto if omitted)
+  scrubDistance = 2,    // in viewport heights (auto if omitted)
+  overlapDistance = 1,  // in viewport heights
   children,
   freezeChildrenWhilePinned = true,
   onPinChange,          // (pinned: boolean) => void
-  onVideoLoad,
 }) => {
   /* ── refs ─────────────────────────────────────────────────────────────── */
   const sectionRef          = useRef(null);
@@ -82,6 +82,9 @@ const ScrollExpandMedia = ({
   const segmentRefs         = useRef([]);
   const segmentWrapperRef   = useRef(null);   // hides ALL segments during Phase 1
   const gsapCtx             = useRef(null);
+  const hasPlayedRef        = useRef(false);
+  const playAttemptRef      = useRef(false);
+  const playTokenRef        = useRef(0);
 
   const firstWord   = title ? title.split(' ')[0] : '';
   const restOfTitle = title ? title.split(' ').slice(1).join(' ') : '';
@@ -97,9 +100,10 @@ const ScrollExpandMedia = ({
 
       gsapCtx.current = gsap.context(() => {
         const isMobile   = window.innerWidth < 768;
-        const scrubVh    = scrubDistance ?? Math.max(1.5, duration * 0.35);
-        const totalVh    = expandDistance + scrubVh;
+        /* Create a single scrubbing timeline mapped to the whole section scroll */
+        const totalVh    = expandDistance + scrubDistance + overlapDistance;
         const expandFrac = expandDistance / totalVh;
+        const scrubFrac  = scrubDistance / totalVh;
 
         /* ── initial position: centre the 300×400 box in pixels ────────── */
         const initLeft = (window.innerWidth  - 300) / 2;
@@ -146,6 +150,40 @@ const ScrollExpandMedia = ({
               if (shouldStop !== _wasPinned) {
                 _wasPinned = shouldStop;
                 onPinChange?.(shouldStop);
+              }
+
+              // mobile native playback with hysteresis and promise-safety
+              if (isMobile) {
+                const v = videoRef.current;
+                if (!v) return;
+
+                if (self.progress >= expandFrac + 0.02) {
+                  if (!hasPlayedRef.current && !playAttemptRef.current) {
+                    const token = ++playTokenRef.current;
+                    playAttemptRef.current = true;
+                    v.loop = true;
+                    v.play()
+                      .then(() => {
+                        if (playTokenRef.current !== token) return;
+                        hasPlayedRef.current = true;
+                        playAttemptRef.current = false;
+                      })
+                      .catch(err => {
+                        if (playTokenRef.current !== token) return;
+                        playAttemptRef.current = false;
+                        console.warn('[MuhayaHero] video.play() failed:', err);
+                      });
+                  }
+                } else if (self.progress < expandFrac - 0.02) {
+                  if (hasPlayedRef.current || playAttemptRef.current) {
+                    playTokenRef.current++;
+                    v.pause();
+                    v.currentTime = 0;
+                    hasPlayedRef.current = false;
+                    playAttemptRef.current = false;
+                    gsap.set(v, { filter: 'grayscale(1) brightness(0.85)' });
+                  }
+                }
               }
             },
           },
@@ -211,21 +249,22 @@ const ScrollExpandMedia = ({
           );
         }
 
-        /* Phase 2 – scrub video */
+        /* Phase 2 – scrub video (desktop only) */
         const proxy = { t: 0 };
-        const scrubDuration = 1 - expandFrac;
 
-        tl.to(proxy, {
-          t: 1,
-          ease: 'none',
-          duration: scrubDuration,
-          onUpdate() {
-            const v = videoRef.current;
-            if (!v?.duration) return;
-            const target = proxy.t * v.duration; // current video time in seconds
-            if (Math.abs(v.currentTime - target) > 0.04) v.currentTime = target;
-          },
-        }, expandFrac);
+        if (!isMobile) {
+          tl.to(proxy, {
+            t: 1,
+            ease: 'none',
+            duration: scrubFrac,
+            onUpdate() {
+              const v = videoRef.current;
+              if (!v?.duration) return;
+              const target = proxy.t * v.duration; // current video time in seconds
+              if (Math.abs(v.currentTime - target) > 0.04) v.currentTime = target;
+            },
+          }, expandFrac);
+        }
 
         /* Add segment animations to the timeline */
         const vDur = videoRef.current?.duration || 10;
@@ -237,11 +276,11 @@ const ScrollExpandMedia = ({
           
           if (s.start >= vDur) return; // Completely out of bounds
           
-          const tStart = expandFrac + (s.start / vDur) * scrubDuration;
-          const tEnd   = expandFrac + (dur / vDur) * scrubDuration;
+          const tStart = expandFrac + (s.start / vDur) * scrubFrac;
+          const tEnd   = expandFrac + (dur / vDur) * scrubFrac;
           
-          const fadeInDur = ((s.fadeIn ?? 0.4) / vDur) * scrubDuration;
-          const fadeOutDur = ((s.fadeOut ?? 0.4) / vDur) * scrubDuration;
+          const fadeInDur = ((s.fadeIn ?? 0.4) / vDur) * scrubFrac;
+          const fadeOutDur = ((s.fadeOut ?? 0.4) / vDur) * scrubFrac;
 
           const animItems = el.querySelectorAll('.anim-item');
           const counterItems = el.querySelectorAll('[data-counter]');
@@ -254,10 +293,13 @@ const ScrollExpandMedia = ({
             });
           }
           counterItems.forEach(item => {
-            const targetVal = item.dataset.counter;
-            const numStr = String(targetVal).replace(/[^0-9]/g, '');
-            const suffix = String(targetVal).replace(/[0-9]/g, '');
-            gsap.set(item, { innerText: '0' + suffix });
+            const targetVal = String(item.dataset.counter || '0');
+            const match = targetVal.match(/^([^0-9]*)([0-9]+)([^0-9]*)$/);
+            if (match) {
+              gsap.set(item, { innerText: match[1] + '0' + match[3] });
+            } else {
+              gsap.set(item, { innerText: targetVal });
+            }
           });
 
           // Fade In Segment wrapper immediately when it's time
@@ -281,20 +323,23 @@ const ScrollExpandMedia = ({
 
           // Animate counters
           counterItems.forEach(item => {
-            const targetVal = item.dataset.counter;
-            const numStr = String(targetVal).replace(/[^0-9]/g, '');
-            const suffix = String(targetVal).replace(/[0-9]/g, '');
-            const num = Number(numStr);
-            const obj = { val: 0 };
-            
-            tl.to(obj, {
-              val: num,
-              duration: Math.min(1.5, fadeInDur * 0.8),
-              ease: 'power2.out',
-              onUpdate: () => {
-                item.innerText = Math.round(obj.val) + suffix;
-              }
-            }, tStart);
+            const targetVal = String(item.dataset.counter || '0');
+            const match = targetVal.match(/^([^0-9]*)([0-9]+)([^0-9]*)$/);
+            if (match) {
+              const prefix = match[1];
+              const num = Number(match[2]);
+              const suffix = match[3];
+              const obj = { val: 0 };
+              
+              tl.to(obj, {
+                val: num,
+                duration: Math.min(1.5, fadeInDur * 0.8),
+                ease: 'power2.out',
+                onUpdate: () => {
+                  item.innerText = prefix + Math.round(obj.val) + suffix;
+                }
+              }, tStart);
+            }
           });
 
           // Fade OUT
@@ -363,7 +408,7 @@ const ScrollExpandMedia = ({
       gsapCtx.current?.revert();
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [expandDistance, scrubDistance]);
+  }, [expandDistance, scrubDistance, overlapDistance]);
 
   /* ── render ─────────────────────────────────────────────────────────────── */
   return (
@@ -419,9 +464,6 @@ const ScrollExpandMedia = ({
               preload="auto"
               disablePictureInPicture
               className="w-full h-full object-cover"
-              onCanPlayThrough={() => {
-                if (onVideoLoad) onVideoLoad();
-              }}
             />
 
             {/* dark overlay */}
@@ -486,7 +528,7 @@ const ScrollExpandMedia = ({
 
       {/* ── Spacer for video scrub duration ──────────────────────────────── */}
       <div 
-        style={{ height: `${(expandDistance + (scrubDistance || 1.5)) * 100}vh` }} 
+        style={{ height: `${(expandDistance + scrubDistance + overlapDistance) * 100}vh` }} 
         className="pointer-events-none relative z-0" 
       />
 
