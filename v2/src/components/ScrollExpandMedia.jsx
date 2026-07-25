@@ -129,9 +129,14 @@ const ScrollExpandMedia = ({
           });
         }
 
-        /* start video in grayscale */
-        if (videoRef.current)
+        /* start video in grayscale and force first frame on iOS */
+        if (videoRef.current) {
           gsap.set(videoRef.current, { filter: 'grayscale(1) brightness(0.85)' });
+          videoRef.current.pause();
+          if (videoRef.current.currentTime === 0) {
+            videoRef.current.currentTime = 0.01;
+          }
+        }
 
         /* ── pinned master timeline ─────────────────────────────────────── */
         let _wasPinned = false;
@@ -461,6 +466,7 @@ const ScrollExpandMedia = ({
               poster={posterSrc}
               muted
               playsInline
+              autoPlay
               preload="auto"
               disablePictureInPicture
               className="w-full h-full object-cover"

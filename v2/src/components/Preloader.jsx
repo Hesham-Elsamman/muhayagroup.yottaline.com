@@ -63,10 +63,8 @@ export default function Preloader({ videoUrl, onVideoReady, onComplete }) {
         if (resolvedRef.current) return;
         resolvedRef.current = true;
 
-        const blob = new Blob(chunks, { type: 'video/mp4' });
-        const blobUrl = URL.createObjectURL(blob);
         setProgress(100);
-        onVideoReadyRef.current(blobUrl);
+        onVideoReadyRef.current(videoUrl);
         setVideoReady(true);
       } catch (err) {
         if (err.name === 'AbortError') return;
