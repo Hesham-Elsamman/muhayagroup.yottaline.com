@@ -1,5 +1,10 @@
 RewriteEngine On
 
+# Fix for iOS Safari video playback (Range Requests)
+<IfModule mod_env.c>
+    SetEnvIfNoCase Request_URI \.mp4$ no-gzip dont-vary
+</IfModule>
+
 RewriteRule ^v1/ - [L]
 
 RewriteCond %{DOCUMENT_ROOT}/v2/dist/$1 -f [OR]
