@@ -89,6 +89,42 @@ const ScrollExpandMedia = ({
   const firstWord   = title ? title.split(' ')[0] : '';
   const restOfTitle = title ? title.split(' ').slice(1).join(' ') : '';
 
+  /* ── iOS first-frame fix ────────────────────────────────────────────────
+   * iOS Safari will NOT render any video frame until playback actually starts,
+   * even with muted + playsInline. We play for one frame then pause immediately
+   * so the thumbnail is always visible before the user scrolls.
+   * ─────────────────────────────────────────────────────────────────────── */
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !mediaSrc) return;
+
+    const forceFirstFrame = () => {
+      video.currentTime = 0.01;
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            video.pause();
+            video.currentTime = 0.01;
+          })
+          .catch(() => {
+            // autoplay blocked — at least set time so poster shows
+            video.currentTime = 0.01;
+          });
+      }
+    };
+
+    if (video.readyState >= 2) {
+      forceFirstFrame();
+    } else {
+      video.addEventListener('loadeddata', forceFirstFrame, { once: true });
+    }
+
+    return () => {
+      video.removeEventListener('loadeddata', forceFirstFrame);
+    };
+  }, [mediaSrc]);
+
   /* ── GSAP setup ────────────────────────────────────────────────────────── */
   useEffect(() => {
     const video = videoRef.current;
@@ -129,13 +165,9 @@ const ScrollExpandMedia = ({
           });
         }
 
-        /* start video in grayscale and force first frame on iOS */
+        /* start video in grayscale */
         if (videoRef.current) {
           gsap.set(videoRef.current, { filter: 'grayscale(1) brightness(0.85)' });
-          videoRef.current.pause();
-          if (videoRef.current.currentTime === 0) {
-            videoRef.current.currentTime = 0.01;
-          }
         }
 
         /* ── pinned master timeline ─────────────────────────────────────── */
